@@ -9,7 +9,7 @@ export function postReducer(state = initialState, action) {
         case types.POST_TODO:
             return {
                 ...state,
-                ToDos: [...state.ToDos, action.payload]
+                ToDos: action.payload
             }
         default:
             return state;

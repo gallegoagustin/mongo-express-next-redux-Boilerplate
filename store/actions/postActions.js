@@ -1,10 +1,9 @@
 import * as types from '../types';
+import axios from 'axios'
 
-export const postTodo = (arg) => {
+export const postTodo = () => {
     return (dispatch) => {
-        dispatch({
-            type: types.POST_TODO,
-            payload: arg
-        })
+        axios.get('http://localhost:3000/api/Todo')
+        .then((r) => dispatch({ type: types.POST_TODO, payload: r.data}))
     }
 }
