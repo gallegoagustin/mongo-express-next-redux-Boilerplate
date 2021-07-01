@@ -13,10 +13,13 @@ app
     .then(() => {
         const server = express();
         const productRoutes = require('./routes/product'); 
+        //Traigo la ruta de ToDos
+        const ToDos = require('./routes/ToDos')
         
         server.use(express.json());
         
         server.use('/api', productRoutes);
+        server.use('/api/ToDo', ToDos)
 
         server.get('/api/users', (req, res) => {
             const  users = {

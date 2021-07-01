@@ -1,4 +1,5 @@
 import Container from '../components/container.js';
+import axios from 'axios'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postTodo } from '../store/actions/postActions.js';
@@ -20,7 +21,8 @@ const Home = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(postTodo(state));
+        axios.post('http://localhost:3000/api/Todo',  { ToDo: state} )
+        dispatch(postTodo());
     }
 
     return (
