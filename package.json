@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "babel-plugin-styled-components": "^1.13.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.0",
@@ -26,6 +25,7 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.1",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1"
   }
