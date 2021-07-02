@@ -1,6 +1,22 @@
 import { createGlobalStyle } from 'styled-components'
+import styled from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+
+export const lightTheme = {
+    body: '#fff',
+    fontColor: '#000'
+}
+
+export const darkTheme = {
+    body: '#000',
+    fontColor: '#fff'
+}
+
+export const StyledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+`;
+
+export const GlobalStyles = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,6 +67,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+        background-color: ${(props) => props.theme.body};
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -66,5 +86,3 @@ h1 {
 	margin: 1rem 0;
 }
 `
-
-export default GlobalStyle;

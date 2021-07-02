@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const FooterDiv = styled.div`
-    border-top: 1px solid grey;
-    background: white;
+    border-top: 1px solid;
+    ${'' /* background: white; */}
     text-align: left;
     padding: 2rem;
     bottom: 0;
