@@ -1,9 +1,6 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+import { createGlobalStyle } from 'styled-components'
 
-PASO TODO A STYLED-COMPONENTS
-
+const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,7 +21,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -62,4 +59,12 @@ a {
 * {
   box-sizing: border-box;
 }
-*/
+
+h1 {
+	font-family: Ubuntu;
+	font-size: 2rem;
+	margin: 1rem 0;
+}
+`
+
+export default GlobalStyle;
