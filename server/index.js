@@ -4,31 +4,29 @@ require('./db')
 require('dotenv').config()
 
 
-//Port
+//Settings
 const port = process.env.PORT || 3000;
 const dev  = process.env.NODE_ENV !== 'production';
 const app =  next({ dev });
 const handle = app.getRequestHandler();
 
-//Middlewares
-//Routes
-
 app
     .prepare()
     .then(() => {
+
+        //Initializations
         const server = express();
-        const productRoutes = require('./routes/product'); 
-        //Traigo la ruta de ToDos
-        const ToDos = require('./routes/ToDos')
-        //Traigo la ruta para Users
-        const Users = require('./routes/users.routes')
+        const Index = require('./routes/index.routes')
         
+        //Middlewares
         server.use(express.json());
         
-        server.use('/api', productRoutes);
-        server.use('/api/ToDo', ToDos)
-        server.use('/api/users', Users)
+        //Route
+        server.use('/api', Index)
 
+        //Settings
+        //Static Files
+         
         server.get('*', (req, res) => {
             return handle(req, res);
         })

@@ -1,7 +1,6 @@
-const express = require('express');
-const router = express.Router();
+const products = {}
 
-router.get('/product', (req, res) => {
+products.pruebaProducts = (req, res) => {
     // Creamos un JSON
     const products = {
         1: "manga",
@@ -10,6 +9,6 @@ router.get('/product', (req, res) => {
     }
 
     return res.json(products);
-})
+}
 
-module.exports = router;
+module.exports = products;
