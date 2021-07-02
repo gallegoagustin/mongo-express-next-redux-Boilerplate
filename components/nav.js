@@ -19,7 +19,7 @@ const StyledLink = styled.a`
 
 const Nav = () => {
     return(
-        <Navbar>
+          <Navbar>
             <div>
                 <Link href="/" passHref>
                     <StyledLink>NEXT-BP</StyledLink>
@@ -32,8 +32,12 @@ const Nav = () => {
                 <Link href="/list" passHref>
                     <StyledLink>list</StyledLink>
                 </Link>
+                <Link href="/register" passHref>
+                    <StyledLink>register</StyledLink>
+                </Link>
             </div>
         </Navbar>
+
     )
 }
 
