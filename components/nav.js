@@ -9,6 +9,9 @@ const Nav = () => {
             <li>
                 <Link href='/list'><a>List</a></Link>
             </li>
+            <li>
+                <Link href='/register'><a>Register</a></Link>
+            </li>
         </ul>
     )
 }

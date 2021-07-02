@@ -3,10 +3,15 @@ const next = require('next');
 require('./db')
 require('dotenv').config()
 
+
+//Port
 const port = process.env.PORT || 3000;
 const dev  = process.env.NODE_ENV !== 'production';
 const app =  next({ dev });
 const handle = app.getRequestHandler();
+
+//Middlewares
+//Routes
 
 app
     .prepare()
@@ -15,22 +20,14 @@ app
         const productRoutes = require('./routes/product'); 
         //Traigo la ruta de ToDos
         const ToDos = require('./routes/ToDos')
+        //Traigo la ruta para Users
+        const Users = require('./routes/users.routes')
         
         server.use(express.json());
         
         server.use('/api', productRoutes);
         server.use('/api/ToDo', ToDos)
-
-        server.get('/api/users', (req, res) => {
-            const  users = {
-                1: 'sugus',
-                2: 'dani',
-                3: 'jere',
-                4: 'jorge'
-            }
-
-            return res.json(users);
-        })
+        server.use('/api/users', Users)
 
         server.get('*', (req, res) => {
             return handle(req, res);
