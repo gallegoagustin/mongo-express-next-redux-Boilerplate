@@ -1,5 +1,6 @@
 import Container from '../components/container.js';
-import axios from 'axios'
+import axios from 'axios';
+import ReCaptchaV2 from 'react-google-recaptcha';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postTodo } from '../store/actions/postActions.js';
@@ -12,7 +13,8 @@ const Login = () => {
         name: '',
         surname: '',
         password: '',
-        nickname: ''
+        nickname: '',
+        token: null
     })
 
     const handleChange = (event) => {
@@ -24,7 +26,26 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        if(state.token === null) {
+            alert('You must validate the captcha')
+        }
+
         axios.post('http://localhost:3000/api/users',  state)
+    }
+
+    const handleToken = (input) => {
+        setState({
+            ...state,
+            token: input
+        })
+    }
+
+    const handleExpire = () => {
+        setState({
+            ...state,
+            token: null
+        })
     }
 
     return (
@@ -78,6 +99,12 @@ const Login = () => {
                         name="nickname"
                         onChange={(e) => {handleChange(e)}}
                         value={state.nickname}
+                    />
+                    <hr/>
+                    <ReCaptchaV2 
+                        sitekey="6LeTb28bAAAAABnKX98id7Eqd2RGeLBIv6cuRMtm"
+                        onChange={handleToken}
+                        onExpire={handleExpire}
                     />
                     <hr/>
                     <button type='submit'>submit</button>
