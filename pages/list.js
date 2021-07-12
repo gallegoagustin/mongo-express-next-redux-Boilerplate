@@ -8,7 +8,7 @@ const List = () => {
             <h1>List page</h1>
             {
                 todos?.map(todo => (
-                    <div>
+                    <div key={todo.number}>
                         {todo.string} {todo.number}
                     </div>
                 ))
